@@ -37,6 +37,20 @@ public class SignupScene : MonoBehaviour
     public Text ResSignupText;
     public Text ResSignupComplete;
 
+    public Button SignupButton;
+    public Sprite SignupImage;
+    public Sprite SignupImage2;
+
+    public Button OKButton;
+    public Sprite OKImage;
+
+    public Button ConfirmButton;
+    public Sprite ConfirmImage;
+    public Sprite ConfirmImage2;
+
+    public Button BackButton;
+    public Sprite BackImage;
+
     // Use this for initialization
     void Start()
     {
@@ -125,23 +139,23 @@ public class SignupScene : MonoBehaviour
         Debug.Log("Send PassWord : " + Pw);
         Debug.Log("Send UserName : " + NickName);
 
-        if (Id.Length > 20)
+        if (Id.Length > 20 || Id.Length < 6)
         {
-            ResSignupText.text = "20자 이내로 아이디를 설정해주시기 바랍니다.";
+            ResSignupText.text = "6 ~ 20자 이내로 아이디를 설정해주시기 바랍니다.";
             obj2.SetActive(true);
             obj.SetActive(false);
             return;
         }
-        if (Pw.Length > 20)
+        if (Pw.Length > 20 || Pw.Length < 6)
         {
-            ResSignupText.text = "20자 이내로 패스워드를 설정해주시기 바랍니다.";
+            ResSignupText.text = "6 ~ 20자 이내로 패스워드를 설정해주시기 바랍니다.";
             obj2.SetActive(true);
             obj.SetActive(false);
             return;
         }
-        if (NickName.Length > 20)
+        if (NickName.Length > 20 || NickName.Length < 6)
         {
-            ResSignupText.text = "20자 이내로 닉네임을 설정해주시기 바랍니다.";
+            ResSignupText.text = "6 ~ 20자 이내로 닉네임을 설정해주시기 바랍니다.";
             obj2.SetActive(true);
             obj.SetActive(false);
             return;
@@ -170,6 +184,28 @@ public class SignupScene : MonoBehaviour
         obj2.SetActive(false);
         obj3.SetActive(false);
         SceneManager.LoadScene("LoginScene", LoadSceneMode.Single);
+    }
+
+    public void OnSignup()
+    {
+        SignupButton.image.overrideSprite = SignupImage;
+        ConfirmButton.image.overrideSprite = ConfirmImage2;
+    }
+
+    public void OnOK()
+    {
+        OKButton.image.overrideSprite = OKImage;
+    }
+
+    public void OnBack()
+    {
+        BackButton.image.overrideSprite = BackImage;
+    }
+
+    public void OnConfirm()
+    {
+        ConfirmButton.image.overrideSprite = ConfirmImage;
+        SignupButton.image.overrideSprite = SignupImage2;
     }
 
     public byte[] Serialize(object data)

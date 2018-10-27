@@ -56,6 +56,10 @@ public class BoardManager : MonoBehaviour {
 
     GameObject ResignCanvas;
 
+    public Button ResignButton;
+    public Sprite ResignImage;
+    public Sprite ResignImage2;
+
     // Use this for initialization
     void Start () {
         Instance = this;
@@ -494,11 +498,13 @@ public class BoardManager : MonoBehaviour {
 
     public void OnResignBtn()
     {
+        ResignButton.image.overrideSprite = ResignImage;
         ResignCanvas.SetActive(true);
     }
 
     public void NoBtn()
     {
+        ResignButton.image.overrideSprite = ResignImage2;
         ResignCanvas.SetActive(false);
     }
 

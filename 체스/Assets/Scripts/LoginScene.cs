@@ -44,6 +44,17 @@ public class LoginScene : MonoBehaviour
     GameObject obj2;
     public Text ResLoginText;
 
+    public Button SigninButton;
+    public Sprite SigninImage;
+    public Sprite SigninImage2;
+
+    public Button SignupButton;
+    public Sprite SignupImage;
+
+    public Button OKButton;
+    public Sprite OKImage;
+    public Sprite OKImage2;
+
     // Use this for initialization
     void Start()
     {
@@ -139,6 +150,23 @@ public class LoginScene : MonoBehaviour
     {
         obj.SetActive(true);
         obj2.SetActive(false);
+    }
+
+    public void OnSignin()
+    {
+        SigninButton.image.overrideSprite = SigninImage;
+        OKButton.image.overrideSprite = OKImage2;
+    }
+
+    public void OnSignup()
+    {
+        SignupButton.image.overrideSprite = SignupImage;
+    }
+
+    public void OnOK()
+    {
+        SigninButton.image.overrideSprite = SigninImage2;
+        OKButton.image.overrideSprite = OKImage;
     }
 
     public byte[] Serialize(object data)

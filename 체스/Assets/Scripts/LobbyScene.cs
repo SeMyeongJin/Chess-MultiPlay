@@ -30,6 +30,34 @@ public class LobbyScene : MonoBehaviour
     GameObject obj3;
     GameObject obj4;
 
+    public Button OffButton;
+    public Sprite OffImage;
+    public Sprite OffImage2;
+
+    public Button FriButton;
+    public Sprite FriImage;
+    public Sprite FriImage2;
+
+    public Button InfoButton;
+    public Sprite InfoImage;
+    public Sprite InfoImage2;
+
+    public Button FoldButton;
+    public Sprite FoldImage;
+    public Sprite FoldImage2;
+
+    public Button LogOutButton;
+    public Sprite LogOutImage;
+
+
+    public Button EndButton;
+    public Sprite EndImage;
+
+    public Button ReturnButton;
+    public Sprite ReturnImage;
+    public Sprite ReturnImage2;
+
+    public Image image;
     // Use this for initialization
     void Start()
     {
@@ -56,9 +84,23 @@ public class LobbyScene : MonoBehaviour
         }
     }
 
+    public void OnOGameStartBtn()
+    {
+        OffButton.image.overrideSprite = OffImage;
+        Sprite newSprite = Resources.Load<Sprite>("off3");
+        image.overrideSprite = newSprite;
+    }
+
     public void OGameStartBtn()
     {
         OGameStart();
+    }
+
+    public void OnFGameStartBtn()
+    {
+        FriButton.image.overrideSprite = FriImage;
+        Sprite newSprite = Resources.Load<Sprite>("fri3");
+        image.overrideSprite = newSprite;
     }
 
     public void FGameStartBtn()
@@ -66,14 +108,34 @@ public class LobbyScene : MonoBehaviour
         FGameStart();
     }
 
+    public void OnUserInfoBtn()
+    {
+        InfoButton.image.overrideSprite = InfoImage;
+        FoldButton.image.overrideSprite = FoldImage2;
+    }
+
     public void UserInfoBtn()
     {
         UserInfo();
     }
 
+    public void OnFoldBtn()
+    {
+        FoldButton.image.overrideSprite = FoldImage;
+        InfoButton.image.overrideSprite = InfoImage2;
+    }
+
     public void BackBtn()
     {
         Back();
+    }
+
+    public void OnCancelBtn()
+    {
+        OffButton.image.overrideSprite = OffImage2;
+        FriButton.image.overrideSprite = FriImage2;
+        obj2.SetActive(true);
+        obj3.SetActive(false);
     }
 
     public void CancelBtn()
@@ -191,12 +253,21 @@ public class LobbyScene : MonoBehaviour
 
     public void PowerBtn()
     {
+        ReturnButton.image.overrideSprite = ReturnImage2;
         obj4.SetActive(true);
+        obj2.SetActive(false);
     }
 
     public void PowerBackBtn()
     {
+        ReturnButton.image.overrideSprite = ReturnImage;
+        obj2.SetActive(true);
         obj4.SetActive(false);
+    }
+
+    public void OnQuit()
+    {
+        EndButton.image.overrideSprite = EndImage;
     }
 
     public void Quit()
@@ -208,6 +279,11 @@ public class LobbyScene : MonoBehaviour
         AsyncSockets.AsyncCallbackClient.Instance().Close();
         Application.Quit();
 #endif
+    }
+
+    public void OnLogOut()
+    {
+        LogOutButton.image.overrideSprite = LogOutImage;
     }
 
     public void LogOut()
