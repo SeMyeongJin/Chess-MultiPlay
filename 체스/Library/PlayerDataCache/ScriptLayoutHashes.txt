@@ -5,7 +5,7 @@ Assets/Scenes/SignupScene.unity
 Assets/Scenes/LobbyScene.unity
 Assets/Scenes/ChessGameScene.unity
 SceneListEnd?
-31fb60d8c92a5188409865bd8f5b2bf0 Assembly-CSharp.dll:.BoardManager
+5766cda6c4cac2f8c63f3e874c3a2970 Assembly-CSharp.dll:.BoardManager
 45f60939c787df3f9da42b22cec3b4c1 Assembly-CSharp.dll:.LoginScene
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 970a95104359198fe1a98ef48655de8c UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack

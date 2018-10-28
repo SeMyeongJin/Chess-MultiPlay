@@ -60,6 +60,7 @@ public class BoardManager : MonoBehaviour {
     public Sprite ResignImage;
     public Sprite ResignImage2;
 
+    public Image images;
     // Use this for initialization
     void Start () {
         Instance = this;
@@ -407,6 +408,10 @@ public class BoardManager : MonoBehaviour {
 
                 AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
 
+                Sprite newSprite = Resources.Load<Sprite>("win");
+
+                images.overrideSprite = newSprite;
+
                 Result.text = "승리";
 
                 ResultObj.SetActive(true);
@@ -418,6 +423,10 @@ public class BoardManager : MonoBehaviour {
                 sendByte = Serialize(gameLosePack);
 
                 AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
+
+                Sprite newSprite = Resources.Load<Sprite>("lose");
+
+                images.overrideSprite = newSprite;
 
                 Result.text = "패배";
 
@@ -431,6 +440,10 @@ public class BoardManager : MonoBehaviour {
 
                 AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
 
+                Sprite newSprite = Resources.Load<Sprite>("win");
+
+                images.overrideSprite = newSprite;
+
                 Result.text = "승리";
 
                 ResultObj.SetActive(true);
@@ -442,6 +455,10 @@ public class BoardManager : MonoBehaviour {
                 sendByte = Serialize(gameLosePack);
 
                 AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
+
+                Sprite newSprite = Resources.Load<Sprite>("lose");
+
+                images.overrideSprite = newSprite;
 
                 Result.text = "패배";
 
@@ -458,12 +475,20 @@ public class BoardManager : MonoBehaviour {
 
                 AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
 
+                Sprite newSprite = Resources.Load<Sprite>("win");
+
+                images.overrideSprite = newSprite;
+
                 Result.text = "승리";
 
                 ResultObj.SetActive(true);
             }
             if (isWhiteTeam && isWhiteTeam != isWhiteTurn)
             {
+                Sprite newSprite = Resources.Load<Sprite>("lose");
+
+                images.overrideSprite = newSprite;
+
                 Result.text = "패배";
 
                 ResultObj.SetActive(true);
@@ -476,12 +501,20 @@ public class BoardManager : MonoBehaviour {
 
                 AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
 
+                Sprite newSprite = Resources.Load<Sprite>("win");
+
+                images.overrideSprite = newSprite;
+
                 Result.text = "승리";
 
                 ResultObj.SetActive(true);
             }
             if (isBlackTeam && isBlackTeam == isWhiteTurn)
             {
+                Sprite newSprite = Resources.Load<Sprite>("lose");
+
+                images.overrideSprite = newSprite;
+
                 Result.text = "패배";
 
                 ResultObj.SetActive(true);
@@ -516,7 +549,11 @@ public class BoardManager : MonoBehaviour {
 
         AsyncSockets.AsyncCallbackClient.Instance().SendData(sendByte);
 
-        Result.text = "패배";
+        Sprite newSprite = Resources.Load<Sprite>("lose");
+
+        images.overrideSprite = newSprite;
+
+        Result.text = "기권 패";
 
         ResultObj.SetActive(true);
         ResignCanvas.SetActive(false);
@@ -533,7 +570,11 @@ public class BoardManager : MonoBehaviour {
 
     private void EnemyResignGame()
     {
-        Result.text = "승리";
+        Sprite newSprite = Resources.Load<Sprite>("win");
+
+        images.overrideSprite = newSprite;
+
+        Result.text = "기권 승";
 
         ResultObj.SetActive(true);
 
